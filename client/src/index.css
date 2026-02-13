@@ -1,0 +1,260 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Kuku Practice App - Educational Color Scheme */
+  /* Primary: Bright Green (#10B981) - Growth and Learning */
+  /* Accent: Warm Orange (#F59E0B) - Activity and Joy */
+  /* Support: Soft Blue (#93C5FD) - Calm and Trust */
+  --primary: #10B981;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #059669;
+  --sidebar-primary-foreground: #ffffff;
+  --chart-1: #10B981;
+  --chart-2: #F59E0B;
+  --chart-3: #93C5FD;
+  --chart-4: #34D399;
+  --chart-5: #6EE7B7;
+  --radius: 1rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.235 0.015 65);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.015 65);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.235 0.015 65);
+  --secondary: #F59E0B;
+  --secondary-foreground: #ffffff;
+  --muted: #E5E7EB;
+  --muted-foreground: #6B7280;
+  --accent: #F59E0B;
+  --accent-foreground: #ffffff;
+  --destructive: #EF4444;
+  --destructive-foreground: #ffffff;
+  --border: #E5E7EB;
+  --input: #F3F4F6;
+  --ring: #10B981;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.235 0.015 65);
+  --sidebar-accent: #10B981;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #10B981;
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+/* Kuku Practice App - Custom Styles */
+@layer components {
+  /* Large display numbers for problems and answers */
+  .kuku-number-display {
+    @apply text-7xl font-black text-center;
+    font-family: 'Fredoka', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Problem display card */
+  .kuku-problem-card {
+    @apply rounded-3xl p-8 shadow-lg;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(245, 158, 11, 0.05));
+    border: 2px solid rgba(16, 185, 129, 0.1);
+  }
+
+  /* Answer display card */
+  .kuku-answer-card {
+    @apply rounded-3xl p-8 shadow-lg;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(147, 197, 253, 0.08));
+    border: 2px solid rgba(245, 158, 11, 0.15);
+  }
+
+  /* Control button styling */
+  .kuku-button-primary {
+    @apply rounded-full px-6 py-3 font-semibold transition-all duration-200 bg-green-500 text-white hover:bg-green-600 active:scale-95 shadow-md;
+    font-family: 'Fredoka', system-ui, sans-serif;
+  }
+
+  .kuku-button-secondary {
+    @apply rounded-full px-6 py-3 font-semibold transition-all duration-200 bg-orange-400 text-white hover:bg-orange-500 active:scale-95 shadow-md;
+    font-family: 'Fredoka', system-ui, sans-serif;
+  }
+
+  /* Segment selector buttons */
+  .kuku-segment-button {
+    @apply rounded-full px-4 py-2 font-bold transition-all duration-150;
+    font-family: 'Fredoka', system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .kuku-segment-button-inactive {
+    @apply rounded-full px-4 py-2 font-bold transition-all duration-150 bg-gray-200 text-gray-700 hover:bg-gray-300;
+    font-family: 'Fredoka', system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .kuku-segment-button-active {
+    @apply rounded-full px-4 py-2 font-bold transition-all duration-150 bg-green-500 text-white shadow-md;
+    font-family: 'Fredoka', system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  /* Progress bar */
+  .kuku-progress-bar {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+
+  .kuku-progress-fill {
+    @apply h-full bg-gradient-to-r from-green-500 to-orange-400 transition-all duration-300;
+  }
+
+  /* Status badge */
+  .kuku-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold;
+    font-family: 'Fredoka', system-ui, sans-serif;
+  }
+
+  .kuku-badge-success {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-green-100 text-green-700;
+    font-family: 'Fredoka', system-ui, sans-serif;
+  }
+
+  .kuku-badge-info {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-blue-100 text-blue-700;
+    font-family: 'Fredoka', system-ui, sans-serif;
+  }
+}
